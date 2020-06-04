@@ -1,0 +1,7 @@
+opencv-python
+os-sys
+logging
+datetime
+time
+face_recognition
+numpy
