@@ -14,7 +14,13 @@ Install requirements:
 ```
 pip3 install -r requirements.txt
 ```
-Put your Known persons Images on **imgdset** folder
+
+For collect known faces run:
+```
+python3 collect.py
+```
+Type person name and wait to get capture of known face, press 's' to save and exit.
+
 
 ### Running
 
@@ -23,7 +29,10 @@ Run :
 ```
 python3 main.py
 ```
-on other terminal you can see logs:
+
+press 'q' to exit.
+
+On other terminal you can see logs:
 ```
 tail -f main.log
 ```
@@ -39,5 +48,4 @@ tail -f main.log
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
