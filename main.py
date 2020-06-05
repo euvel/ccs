@@ -5,7 +5,7 @@
 """
 
 __author__ = "Mohammadreza Qojavand"
-__version__ = "1.0.7"
+__version__ = "1.0.9"
 __license__ = "MIT"
 
 import cv2
