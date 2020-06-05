@@ -33,15 +33,7 @@ def main():
     #        sleep(5)
     #        pass
 
-
-    # Load Me and Get encodings
-    #me_image = face_recognition.load_image_file("me.jpg")
-    #me_face_encoding = face_recognition.face_encodings(me_image)[0]
-
-    # Load Tom hardy picture and Get encodings
-    #tom_image = face_recognition.load_image_file("tom.jpg")
-    #tom_face_encoding = face_recognition.face_encodings(tom_image)[0]
-
+    # Get Known Images
     knownImages_path = './imgdset'
     knownImages = []
     for r, d, f in os.walk(knownImages_path):
@@ -49,26 +41,17 @@ def main():
             if '.jpg' in file:
                 knownImages.append(os.path.join(r, file))
 
-
+    # Initialize needed variables
     known_face_names = []
     known_face_encodings = []
+
+    # Get known persons name and face encodings
     for img in knownImages:
         img_file = face_recognition.load_image_file(img)
         img_enc = face_recognition.face_encodings(img_file)[0]
         known_face_encodings.append(img_enc)
         known_face_names.append(img.replace("./imgdset/","").replace(".jpg", ""))
 
-    """
-    # Make arrays of known face encodings and their names
-    known_face_encodings = [
-        me_face_encoding,
-        tom_face_encoding
-    ]
-    known_face_names = [
-        "euvel",
-        "tom"
-    ]
-    """
     # Initialize needed variables
     face_locations = []
     face_encodings = []
@@ -124,7 +107,7 @@ def main():
             font = cv2.FONT_HERSHEY_DUPLEX
             cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (0, 0, 0), 1)
             # log commute in main.log file
-            log.info("faces: "+str(name)+" at "+str(dt.datetime.now()))
+            log.info(" [*] faces: "+str(name)+" at "+str(dt.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 
         # Show Results
         cv2.imshow('Video', frame)
